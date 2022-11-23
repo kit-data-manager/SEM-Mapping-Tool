@@ -1,0 +1,8 @@
+{
+    "entry":{
+        "EHT_value":"entry.instrument.eBeamSource.accelerationVoltage.value",
+        "EHT_unit":"entry.instrument.eBeamSource.accelerationVoltage.unit",
+        "Beam Current_unit":"entry.instrument.eBeamSource.beamCurrent.unit",
+        "Beam Current_value":"entry.instrument.eBeamSource.beamCurrent.value"
+    }
+}
