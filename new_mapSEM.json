@@ -39,7 +39,7 @@
         "Collector Bias_value": "entry.instrument.detectors.detector1.detectorBias_value",
         "Collector Bias_unit": "entry.instrument.detectors.detector1.detectorBias_unit",
         "Beam deceleration Volts_value":"entry.instrument.eBeamDeceleration.stageBias.value",
-        "Beam deceleration Volts_unit":"entry.instrument.eBeamDeceleration.stageBias.units",
+        "Beam deceleration Volts_unit":"entry.instrument.eBeamDeceleration.stageBias.unit",
         "FIB SEM Angle_value":"entry.instrument.FIB.angleToEBeam.value",
         "FIB SEM Angle_unit":"entry.instrument.FIB.angleToEBeam.unit",
         "FIB EHT_value":"entry.instrument.FIB.iBeamSource.accelerationVoltage.value",
