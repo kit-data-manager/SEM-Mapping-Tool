@@ -34,7 +34,6 @@
         "Dwell Time_value":"entry.instrument.imaging.dwellTime.value",
         "Dwell Time_unit":"entry.instrument.imaging.dwellTime.unit",
         "Mixing_value":"entry.instrument.detectors.signalMixingDone",
-        "InlensDuo Mode_value":"entry.instrument.detectors.detector1.detectorType",
         "Detector_value": "entry.instrument.detectors.detector1.detectorName",
         "Collector Bias_value": "entry.instrument.detectors.detector1.detectorBias_value",
         "Collector Bias_unit": "entry.instrument.detectors.detector1.detectorBias_unit",
