@@ -18,7 +18,7 @@ The schema and the map containing the terms in the metadata of the TIFF image an
 
 * The metadata from the images which are of TIFF format are read using [zeiss_tiff_meta module](https://github.com/ks00x/zeiss_tiff_meta).
 
-* The metadata read from the image is then made into a flat list which has values and units of each parameter in the form <parameter>_value, and <parameter>_unit, repsectively.
+* The metadata read from the image is then made into a flat list which has values and units of each parameter in the form parameter_value, and parameter_unit, repsectively.
  
 * Next, using the class `AttributeMapping`, the parameters are mapped to the corresponding terms with their complete hierarchy as in the SEM Schema using the map stored as a json file passed through `myMap`.
  
