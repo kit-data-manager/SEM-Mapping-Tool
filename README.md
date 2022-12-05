@@ -8,7 +8,7 @@ This python based tool extracts metadata from machine generated scanning microsc
 
 * In the last code block, replace the path assigned to `imgDir` with the path of the folder containing the SEM TIFF images whose metadata is to be extracted. Similarly replace the path `resultsPath` with the folder where you want the JSON metadata documents to be saved.
 
-The schema and the map containing the terms in the metadata of the TIFF image and the terms in the schema, are stored respectively under `mySchema` and `myMap`, respectively.
+The map containing the terms in the metadata of the TIFF image and the terms in the schema, is stored under `myMap`.
 
 * Now run the `working_example.ipynb` jupyter notebook from the beginning. At the end, after running the last code block, the results will be stored under the path given under `resultspath`.
  
