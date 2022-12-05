@@ -35,8 +35,8 @@
         "Dwell Time_unit":"entry.instrument.imaging.dwellTime.unit",
         "Mixing_value":"entry.instrument.detectors.signalMixingDone",
         "Detector_value": "entry.instrument.detectors.detector1.detectorName",
-        "Collector Bias_value": "entry.instrument.detectors.detector1.detectorBias_value",
-        "Collector Bias_unit": "entry.instrument.detectors.detector1.detectorBias_unit",
+        "Collector Bias_value": "entry.instrument.detectors.detector1.detectorBias.value",
+        "Collector Bias_unit": "entry.instrument.detectors.detector1.detectorBias.unit",
         "Beam deceleration Volts_value":"entry.instrument.eBeamDeceleration.stageBias.value",
         "Beam deceleration Volts_unit":"entry.instrument.eBeamDeceleration.stageBias.unit",
         "FIB SEM Angle_value":"entry.instrument.FIB.angleToEBeam.value",
@@ -50,8 +50,8 @@
         "FIB Gun Pressure_value":"entry.instrument.FIB.gunPressure.value",
         "FIB Gun Pressure_unit":"entry.instrument.FIB.gunPressure.unit",
         "GIS Channel_value":"entry.instrument.FIB.gasInjectionSystem.GISName",
-        "FIB Working Distance_value":"entry.instrument.FIB.iBeamWorkingDistance_value",
-        "FIB Working Distance_unit":"entry.instrument.FIB.iBeamWorkingDistance_unit",
+        "FIB Working Distance_value":"entry.instrument.FIB.iBeamWorkingDistance.value",
+        "FIB Working Distance_unit":"entry.instrument.FIB.iBeamWorkingDistance.unit",
         "FIB Pixel Size_value":"entry.instrument.FIB.FIBSpotSize.value",
         "FIB Pixel Size_unit":"entry.instrument.FIB.FIBSpotSize.unit"
     }
