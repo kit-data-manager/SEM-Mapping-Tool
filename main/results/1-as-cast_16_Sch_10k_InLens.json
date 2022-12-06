@@ -1,0 +1,126 @@
+{
+  "entry": {
+    "endTime": "2019-12-09T11:18:36",
+    "instrument": {
+      "FIB": {
+        "FIBSpotSize": {
+          "unit": "nm",
+          "value": 979.8
+        },
+        "angleToEBeam": {
+          "unit": "degree",
+          "value": 54
+        },
+        "gasInjectionSystem": {
+          "GISName": "None"
+        },
+        "gunPressure": {
+          "unit": "mbar",
+          "value": 2.19e-8
+        },
+        "iBeamSource": {
+          "accelerationVoltage": {
+            "unit": "kV",
+            "value": 0
+          },
+          "beamCurrent": {
+            "unit": "µA",
+            "value": 0.2
+          },
+          "sourceLifetime": {
+            "unit": "µAh",
+            "value": 2960.92
+          }
+        },
+        "iBeamWorkingDistance_unit": "mm",
+        "iBeamWorkingDistance_value": 0
+      },
+      "chamberPressure": {
+        "unit": "mbar",
+        "value": 0.00000573
+      },
+      "detectors": {
+        "detector1": {
+          "detectorBias_unit": "V",
+          "detectorBias_value": 300,
+          "detectorName": "InLens"
+        },
+        "signalMixingDone": false
+      },
+      "eBeamDeceleration": {
+        "stageBias": {
+          "unit": "V",
+          "value": 0
+        }
+      },
+      "eBeamSource": {
+        "accelerationVoltage": {
+          "unit": "kV",
+          "value": 10
+        },
+        "beamCurrent": {
+          "unit": "µA",
+          "value": 80
+        }
+      },
+      "imaging": {
+        "apertureSetting": {
+          "size": {
+            "unit": "µm",
+            "value": 120
+          }
+        },
+        "coordinates": {
+          "coordinatesUnit": "mm",
+          "xValue": 74.9182,
+          "yValue": 93.5093,
+          "zValue": 36.853
+        },
+        "dwellTime": {
+          "unit": "ns",
+          "value": 100
+        },
+        "numberOfPixels": {
+          "xPixels": 1024,
+          "yPixels": 768
+        },
+        "pixelSize": {
+          "xPixelSize": {
+            "unit": "nm",
+            "value": 11.16
+          }
+        },
+        "tiltCorrection": "None"
+      },
+      "instrumentManufacturer": {
+        "instrumentModel": "Auriga 60-46-18"
+      },
+      "instrumentName": "Auriga 60",
+      "stage": {
+        "eBeamWorkingDistance": {
+          "unit": "mm",
+          "value": 4.967
+        },
+        "stageAlignmentDone": true,
+        "tiltAngle": {
+          "unit": "degree",
+          "value": 0
+        }
+      }
+    },
+    "program": {
+      "programVersion": "V05.07.00.00 : 08-Jul-14"
+    },
+    "sample": {
+      "sampleHolder": "Carousel 8x6.5mm",
+      "sampleSize": {
+        "unit": "mm",
+        "value": 10
+      }
+    },
+    "title": "/Users/elias/Documents/SEM_Mapping_Tool/sem-mapping/test_images/DifferentDetector/1-as-cast_16_Sch_10k_InLens.tif",
+    "user": {
+      "userName": "SABINE"
+    }
+  }
+}
