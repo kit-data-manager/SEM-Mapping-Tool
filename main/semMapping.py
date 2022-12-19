@@ -80,3 +80,12 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         json.dump(outputFile, f)
         
     return outputFile
+
+
+imgDir      = '/Users/elias/Documents/sem-mapping/main/test_images/DifferentDetector'
+resultsPath =  '/Users/elias/Documents/sem-mapping/main/results'
+myMap = '/Users/elias/Documents/sem-mapping/main/new_mapSEM.json'
+
+for file in os.listdir(imgDir):
+    if file.endswith(".tif"):
+        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
