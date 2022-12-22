@@ -4,11 +4,20 @@ This python based tool extracts metadata from machine generated scanning microsc
 
 ## How to use the tool
 
-* Clone the repository on your local device and open the file titled `semMapping.py` under the `main` directory. 
+### Prerequisites
 
-* Simply replace the path assigned to `imgDir` with the path of the folder containing the SEM TIFF images whose metadata is to be extracted. Similarly replace the path `resultsPath` with the folder where you want the JSON metadata documents to be saved.
+* Python 3
 
-The map containing the terms in the metadata of the TIFF image and the terms in the schema, is stored under `myMap`.
+### Instructions
+
+* Clone this repository on your local device and open the file titled `semTool.py`. Alternatively, simply download this repository as a zip file.
+
+* Using your favourite IDE, simply run the script `semTool.py`. Alternatively, it can also be done using a terminal or command line interface by simply navigating to the location of the script on your machine and running `python3 path/to/repository/main/semTool.py`
+
+* A graphical interface will open up. Simply select the directory where your sample images are located, and where you would like the resulting json files to appear by using the dialog which opens up, then click execute.
+
+* The program will run and you should get a message indicating it was successful. When you then navigate to the directory you chose as your results directory, the resulting json files will be there. These can then be uploaded to our external interface and further edited.
+
  
 ## The details
 
