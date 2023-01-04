@@ -6,11 +6,11 @@ from attributeMapping import AttributeMapping
 import datetime as dt
 from dateutil import parser
 
-imgDir = sys.argv[1]
+imgDir = sys.argv[2]
 
-resultsPath = sys.argv[2]
+resultsPath = sys.argv[3]
 
-myMap = sys.argv[3]
+myMap = sys.argv[1]
 
 for file in os.listdir(imgDir):
     if file.endswith(".tif"):
