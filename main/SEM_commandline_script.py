@@ -12,11 +12,6 @@ resultsPath = sys.argv[3]
 
 myMap = sys.argv[1]
 
-for file in os.listdir(imgDir):
-    if file.endswith(".tif"):
-        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
-
-
 # view all the metadata stored in the ZEISS TIFF file
 # from https://github.com/ks00x/zeiss_tiff_meta.git
 import zeiss_tiff_meta.zeisstiffmeta as zm
@@ -92,3 +87,7 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         json.dump(outputFile, f)
         
     return outputFile
+
+for file in os.listdir(imgDir):
+    if file.endswith(".tif"):
+        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
