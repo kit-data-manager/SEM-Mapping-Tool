@@ -10,7 +10,7 @@ This python based tool extracts metadata from machine generated scanning microsc
 
 ### Instructions
 
-* Clone this repository on your local device and open the file titled `semTool.py`. Alternatively, simply download this repository as a zip file.
+* Clone this repository on your local device and open the file titled `semTool.py` in the `main` folder. Alternatively, simply download this repository as a zip file.
 
 * Using your favourite IDE, simply run the script `semTool.py`. Alternatively, it can also be done using a terminal or command line interface by simply navigating to the location of the script on your machine and running `python3 path/to/repository/main/semTool.py`
 
