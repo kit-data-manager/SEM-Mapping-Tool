@@ -5,12 +5,12 @@ import copy
 from attributeMapping import AttributeMapping
 import datetime as dt
 from dateutil import parser
-
-imgDir = sys.argv[2]
-
-resultsPath = sys.argv[3]
+import zipfile
 
 myMap = sys.argv[1]
+imgDir = sys.argv[2]
+resultsPath = sys.argv[3]
+
 
 # view all the metadata stored in the ZEISS TIFF file
 # from https://github.com/ks00x/zeiss_tiff_meta.git
@@ -85,9 +85,23 @@ def workFlow(sourceImg, mapSEM, resultsPath):
     print(f'Writing results file {os.path.basename(outputFilename)} ...')
     with open(outputFilename, 'w') as f:
         json.dump(outputFile, f)
-        
-    return outputFile
 
-for file in os.listdir(imgDir):
-    if file.endswith(".tif"):
-        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
+    zip_name = resultsPath + '.zip'
+    with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
+        for folder_name, subfolders, filenames in os.walk(resultsPath):
+            for filename in filenames:
+                file_path = os.path.join(folder_name, filename)
+                zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
+    zip_ref.close()
+        
+    return None
+
+
+with zipfile.ZipFile(imgDir, 'r') as zip:
+    extracted = zip.namelist()
+    zip.extractall()
+    zip.close()
+
+    for f in extracted:
+        if f[-4:] == '.tif':
+            workFlow(f, myMap, resultsPath)
