@@ -5,7 +5,10 @@ import copy
 from attributeMapping import AttributeMapping
 import datetime as dt
 from dateutil import parser
-import zipfile
+if sys.version_info >= (3, 6):
+    import zipfile
+else:
+    import zipfile36 as zipfile
 
 myMap = sys.argv[1]
 imgDir = sys.argv[2]
