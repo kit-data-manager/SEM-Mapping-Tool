@@ -107,4 +107,7 @@ with zipfile.ZipFile(imgDir, 'r') as zip:
 
     for f in extracted:
         if f[-4:] == '.tif':
-            workFlow(f, myMap, resultsPath)
+            try:
+                workFlow(f, myMap, resultsPath)
+            except:
+                print(f"There was an error in processing the file {f}.")
