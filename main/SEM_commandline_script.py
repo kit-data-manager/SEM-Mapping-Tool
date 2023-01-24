@@ -84,12 +84,12 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         modVal(outputFile, key.split('.'), cleanDict[key])
         
     # Output file to .json
-    # outputFilename = os.path.join(resultsPath, os.path.basename(src[:-4] + '.json'))
     outputFilename = os.path.basename(src[:-4] + '.json')
     print(f'Writing results file {outputFilename} ...')
     with open(os.path.join(resultsPath, outputFilename), 'w') as f:
         json.dump(outputFile, f)
 
+    # zip the resulting files
     zip_name = os.path.splitext(os.path.basename(imgDir))[0] + 'Results' + '.zip'
     with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
         for folder_name, subfolders, filenames in os.walk(resultsPath):
