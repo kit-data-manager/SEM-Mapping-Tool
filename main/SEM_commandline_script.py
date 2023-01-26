@@ -105,15 +105,6 @@ def workFlow(sourceImg, mapSEM, resultsPath):
     return None
 
 
-with zipfile.ZipFile(imgDir, 'r') as zip:
-    extracted = zip.namelist()
-    zip.extractall()
-    for f in extracted:
-        if f[-4:] == '.tif':
-            try:
-                workFlow(f, myMap, resultsPath)
-                print('\n')
-            except:
-                print(f"There was an error in processing the file {f}.\n")
-            os.remove(f)
-    zip.close()
+for file in os.listdir(imgDir):
+    if file.endswith(".tif"):
+        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
