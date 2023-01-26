@@ -60,6 +60,7 @@ def modVal(dic, keys, val):
 
 def workFlow(sourceImg, mapSEM, resultsPath):
     src = sourceImg
+    print(f'Reading metadata for {os.path.basename(src)}...')
     md = zm.zeiss_meta(src)
     del md[0]
     resultDictionary = {**dict((x1+"_value",x2) for x0, x1, x2, x3 in md) , **dict((x1+"_unit",x3) for x0, x1, x2, x3 in md)}
@@ -71,9 +72,11 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         newmapSEM = json.load(m)
         
     # Map the metadata dictionary
-    Map = AttributeMapping(metadataDict, newmapSEM, 'mappedTerms')
-    workingDict = Map.__dict__
-    # print(workingDict)
+    try:
+        Map = AttributeMapping(metadataDict, newmapSEM, 'mappedTerms')
+        workingDict = Map.__dict__
+    except:
+        print('One or more of the required parameters was not found.')
     
     # Clean up the metadata
     cleanDict = cleanData(workingDict)
@@ -85,11 +88,12 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         
     # Output file to .json
     outputFilename = os.path.basename(src[:-4] + '.json')
-    print(f'Writing results file {outputFilename} ...')
+    print(f'Writing results file {outputFilename}...')
     with open(os.path.join(resultsPath, outputFilename), 'w') as f:
         json.dump(outputFile, f)
 
     # zip the resulting files
+    print('Zipping results file...')
     zip_name = os.path.splitext(os.path.basename(imgDir))[0] + 'Results' + '.zip'
     with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
         for folder_name, subfolders, filenames in os.walk(resultsPath):
@@ -97,7 +101,7 @@ def workFlow(sourceImg, mapSEM, resultsPath):
                 file_path = os.path.join(folder_name, filename)
                 zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
     zip_ref.close()
-        
+
     return None
 
 
@@ -108,7 +112,8 @@ with zipfile.ZipFile(imgDir, 'r') as zip:
         if f[-4:] == '.tif':
             try:
                 workFlow(f, myMap, resultsPath)
+                print('\n')
             except:
-                print(f"There was an error in processing the file {f}.")
+                print(f"There was an error in processing the file {f}.\n")
             os.remove(f)
     zip.close()
