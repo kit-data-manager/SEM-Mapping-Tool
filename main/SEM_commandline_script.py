@@ -60,7 +60,7 @@ def modVal(dic, keys, val):
 
 def workFlow(sourceImg, mapSEM, resultsPath):
     src = sourceImg
-    print(f'Reading metadata for {os.path.basename(src)}...')
+    print(f'\nReading metadata for {os.path.basename(src)}...')
     md = zm.zeiss_meta(src)
     del md[0]
     resultDictionary = {**dict((x1+"_value",x2) for x0, x1, x2, x3 in md) , **dict((x1+"_unit",x3) for x0, x1, x2, x3 in md)}
@@ -93,14 +93,14 @@ def workFlow(sourceImg, mapSEM, resultsPath):
         json.dump(outputFile, f)
 
     # zip the resulting files
-    print('Zipping results file...')
-    zip_name = os.path.splitext(os.path.basename(imgDir))[0] + 'Results' + '.zip'
-    with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
-        for folder_name, subfolders, filenames in os.walk(resultsPath):
-            for filename in filenames:
-                file_path = os.path.join(folder_name, filename)
-                zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
-    zip_ref.close()
+    # print('Zipping results file...')
+    # zip_name = os.path.splitext(os.path.basename(imgDir))[0] + 'Results' + '.zip'
+    # with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
+    #     for folder_name, subfolders, filenames in os.walk(resultsPath):
+    #         for filename in filenames:
+    #             file_path = os.path.join(folder_name, filename)
+    #             zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
+    # zip_ref.close()
 
     return None
 
