@@ -58,7 +58,7 @@ def modVal(dic, keys, val):
 
 # if complete path in Nicolas' mapping file, will this func work as well?
 
-def workFlow(sourceImg, mapSEM, resultsPath):
+def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
     src = sourceImg
     print(f'\nReading metadata for {os.path.basename(src)}...')
     md = zm.zeiss_meta(src)
@@ -102,7 +102,7 @@ def workFlow(sourceImg, mapSEM, resultsPath):
     #             zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
     # zip_ref.close()
 
-    return None
+    # return None
 
 
 for file in os.listdir(imgDir):
