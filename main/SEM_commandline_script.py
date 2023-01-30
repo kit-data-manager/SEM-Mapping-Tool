@@ -92,19 +92,4 @@ def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
     with open(os.path.join(resultsPath, outputFilename), 'w') as f:
         json.dump(outputFile, f)
 
-    # zip the resulting files
-    # print('Zipping results file...')
-    # zip_name = os.path.splitext(os.path.basename(imgDir))[0] + 'Results' + '.zip'
-    # with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zip_ref:
-    #     for folder_name, subfolders, filenames in os.walk(resultsPath):
-    #         for filename in filenames:
-    #             file_path = os.path.join(folder_name, filename)
-    #             zip_ref.write(file_path, arcname = os.path.relpath(file_path, resultsPath))
-    # zip_ref.close()
-
-    # return None
-
-
-for file in os.listdir(imgDir):
-    if file.endswith(".tif"):
-        workFlow(os.path.join(imgDir, file), myMap, resultsPath)
+workFlow(os.path.join(imgDir, myMap, resultsPath)
