@@ -5,6 +5,7 @@ import copy
 from attributeMapping import AttributeMapping
 import datetime as dt
 from dateutil import parser
+import logging
 if sys.version_info >= (3, 6):
     import zipfile
 else:
@@ -12,7 +13,7 @@ else:
 
 myMap = sys.argv[1]
 imgDir = sys.argv[2]
-resultsPath = sys.argv[3]
+resultsLoc = sys.argv[3]
 
 
 # view all the metadata stored in the ZEISS TIFF file
@@ -85,11 +86,16 @@ def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
     outputFile = dict()
     for i, key in enumerate(cleanDict):
         modVal(outputFile, key.split('.'), cleanDict[key])
-        
+            
     # Output file to .json
-    outputFilename = os.path.basename(src[:-4] + '.json')
-    print(f'Writing results file {outputFilename}...')
-    with open(os.path.join(resultsPath, outputFilename), 'w') as f:
+    outputFilename = os.path.basename(src[:-4]) + '.json'
+    
+    logging.info('Writing results file outputFilename...')
+    logging.info(os.path.join(resultsPath, outputFilename))
+
+    with open(resultsPath, 'w') as f:
         json.dump(outputFile, f)
 
-workFlow(os.path.join(imgDir, myMap, resultsPath)
+    return outputFile
+
+workFlow(imgDir, myMap, resultsLoc)
