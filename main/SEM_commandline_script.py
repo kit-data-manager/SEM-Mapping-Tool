@@ -56,7 +56,6 @@ def modVal(dic, keys, val):
     dic[keys[-1]] = val
     return None
 
-# if complete path in Nicolas' mapping file, will this func work as well?
 
 def workFlow(sourceImg, mapSEM, resultsPath):
     src = sourceImg
