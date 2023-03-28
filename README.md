@@ -4,6 +4,8 @@ This python based tool extracts metadata from machine generated scanning microsc
 
 ## How to use the tool
 
+The tool can be either used with the GUI version or using a command line interface (CLI) available at [main/SEM_commandline_script.py](https://github.com/kit-data-manager/SEM-Mapping-Tool/blob/8c08cb5a134bf0f62299c5d630754a29b788c684/main/SEM_commandline_script.py). For the GUI version, follow the instructions below.
+
 ### Prerequisites
 
 * Python 3
