@@ -8,14 +8,6 @@ from dateutil import parser
 import zipfile
 import zeiss_tiff_meta.zeisstiffmeta as zm
 
-
-# readFile function which works to read the incoming zip file and unpack it.
-# def readFile(zip_file_path):
-#     with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
-#         for file_name in zip_file.namelist():
-#             if file_name.endswith('.tif') or file_name.endswith('.tiff'):
-#                 print(file_name)
-
 def cleanData(mappedDict):
     # Make endTime var as ISO 8601
     endTime = mappedDict['entry.endTime.Date'] + ' ' + mappedDict['entry.endTime.Time']
@@ -52,12 +44,14 @@ def cleanData(mappedDict):
       
     return {key: value for key, value in sorted(mappedDict.items())}
 
+# Function to "walk" the nested dictionary and create the metadata document accordingly
 def modVal(dic, keys, val):
     for key in keys[:-1]:
         dic = dic.setdefault(key, {})
     dic[keys[-1]] = val
     return None
 
+# Main function which reads the tiff and creates the json metadata document
 def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
     src = sourceImg
     print(f'\nReading metadata for {os.path.basename(src)}...')
@@ -94,6 +88,7 @@ def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
 
     return outputFile
 
+# This function creates the output zip file.
 def process_zip(input_zip_path, myMap, output_zip_path):
     # Create a temporary directory to store the JSON files
     tmp_dir = 'tmp'
@@ -128,14 +123,9 @@ def process_zip(input_zip_path, myMap, output_zip_path):
 # output_zip_path = 'path/to/output/zipfile.zip'
 
 
-imgDir = '/Users/elias/Desktop/SEM-Mapping-Tool/main/test_images/DifferentDetector/1-as-cast_16_Sch_10k_InLens.tif'
 myMap  = '/Users/elias/Desktop/SEM-Mapping-Tool/main/map.json'
-resultsPath = '/Users/elias/Desktop/SEM-Mapping-Tool/main/results/'
-
-# workFlow(imgDir, myMap, resultsPath)
-
 input_zip_path = '/Users/elias/Desktop/SEM-Mapping-Tool/main/test_images/DifferentDetector/Archive.zip'
 output_zip_filename = 'output.zip'
-output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
+output_zip_path = os.path.join(resultsPath, output_zip_filename)
 
 process_zip(input_zip_path, myMap, output_zip_path)
