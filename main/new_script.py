@@ -22,17 +22,6 @@ def cleanData(mappedDict):
     mappedDict['entry.instrument.imaging.numberOfPixels.xPixels'] = imgSize[0]
     mappedDict['entry.instrument.imaging.numberOfPixels.yPixels'] = imgSize[1]
     
-    # Format tilt correction
-    # try:
-    #     tiltCorr = mappedDict['entry.instrument.imaging.tiltCorrection']
-    #     if tiltCorr: 
-    #         mappedDict['entry.instrument.imaging.tiltCorrection'] = ''
-    #     else:
-    #         mappedDict['entry.instrument.imaging.tiltCorrection'] = 'None'
-    # except KeyError:
-    #     print("The tiltCorrection key was not found")
-        
-    # Deg symbol to "degree"
     try:
         if mappedDict['entry.instrument.FIB.angleToEBeam.unit'] == '\u00b0':
             mappedDict['entry.instrument.FIB.angleToEBeam.unit'] = 'degree'
@@ -116,11 +105,6 @@ def process_zip(input_zip_path, myMap, output_zip_path):
 
     # Delete the temporary directory and its contents
     os.system('rm -rf {}'.format(tmp_dir))
-
-
-# Call the process_zip function with the input and output zip file paths
-# input_zip_path = 'path/to/input/zipfile.zip'
-# output_zip_path = 'path/to/output/zipfile.zip'
 
 
 myMap  = '/Users/elias/Desktop/SEM-Mapping-Tool/main/map.json'
