@@ -23,21 +23,21 @@ def cleanData(mappedDict):
     mappedDict['entry.instrument.imaging.numberOfPixels.yPixels'] = imgSize[1]
     
     # Format tilt correction
-    try:
-        tiltCorr = mappedDict['entry.instrument.imaging.tiltCorrection']
-        if tiltCorr: 
-            mappedDict['entry.instrument.imaging.tiltCorrection'] = ''
-        else:
-            mappedDict['entry.instrument.imaging.tiltCorrection'] = 'None'
-    except KeyError:
-        print("The tiltCorrection key was not found")
+    # try:
+    #     tiltCorr = mappedDict['entry.instrument.imaging.tiltCorrection']
+    #     if tiltCorr: 
+    #         mappedDict['entry.instrument.imaging.tiltCorrection'] = ''
+    #     else:
+    #         mappedDict['entry.instrument.imaging.tiltCorrection'] = 'None'
+    # except KeyError:
+    #     print("The tiltCorrection key was not found")
         
     # Deg symbol to "degree"
     try:
         if mappedDict['entry.instrument.FIB.angleToEBeam.unit'] == '\u00b0':
             mappedDict['entry.instrument.FIB.angleToEBeam.unit'] = 'degree'
-        if mappedDict['entry.instrument.stage.tiltAngle.unit'] == '\u00b0':
-            mappedDict['entry.instrument.stage.tiltAngle.unit'] = 'degree'
+        if mappedDict['entry.instrument.stage.stageTiltAngle.unit'] == '\u00b0':
+            mappedDict['entry.instrument.stage.stageTiltAngle.unit'] = 'degree'
     except KeyError:
         print('The tiltAngle key was not found.')
     
@@ -126,6 +126,6 @@ def process_zip(input_zip_path, myMap, output_zip_path):
 myMap  = '/Users/elias/Desktop/SEM-Mapping-Tool/main/map.json'
 input_zip_path = '/Users/elias/Desktop/SEM-Mapping-Tool/main/test_images/DifferentDetector/Archive.zip'
 output_zip_filename = 'output.zip'
-output_zip_path = os.path.join(resultsPath, output_zip_filename)
+output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
 
 process_zip(input_zip_path, myMap, output_zip_path)
