@@ -8,6 +8,10 @@ from dateutil import parser
 import zipfile
 import zeiss_tiff_meta.zeisstiffmeta as zm
 
+myMap = sys.argv[1]
+inputDir = sys.argv[2]
+resultsDir = sys.argv[3]
+
 def cleanData(mappedDict):
     # Make endTime var as ISO 8601
     endTime = mappedDict['entry.endTime.Date'] + ' ' + mappedDict['entry.endTime.Time']
@@ -107,9 +111,10 @@ def process_zip(input_zip_path, myMap, output_zip_path):
     os.system('rm -rf {}'.format(tmp_dir))
 
 
-myMap  = '/Users/elias/Desktop/SEM-Mapping-Tool/main/map.json'
-input_zip_path = '/Users/elias/Desktop/SEM-Mapping-Tool/main/test_images/DifferentDetector/Archive.zip'
-output_zip_filename = 'output.zip'
-output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
+# myMap  = '/Users/elias/Desktop/SEM-Mapping-Tool/main/map.json'
+input_zip_path = inputDir
+# output_zip_filename = 'output.zip'
+# output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
+output_zip_path = resultsDir
 
 process_zip(input_zip_path, myMap, output_zip_path)
