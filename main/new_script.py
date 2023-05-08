@@ -82,7 +82,7 @@ def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
     return outputFile
 
 # This function creates the output zip file.
-def process_zip(input_zip_path, myMap, output_zip_path):
+def process_zip(input_zip_path, myMap, output_zip_path = 'defOutput.zip'):
     # Create a temporary directory to store the JSON files
     tmp_dir = 'tmp'
     os.makedirs(tmp_dir, exist_ok=True)
