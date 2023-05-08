@@ -117,4 +117,4 @@ input_zip_path = inputDir
 # output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
 output_zip_path = resultsDir
 
-process_zip(input_zip_path, myMap, output_zip_path)
+process_zip(input_zip_path, myMap)
