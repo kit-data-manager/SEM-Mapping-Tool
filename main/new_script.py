@@ -4,8 +4,9 @@ import os
 import copy
 from attributeMapping import AttributeMapping
 import datetime as dt
-from dateutil import parser
+# from dateutil import parser
 import zipfile
+import numpy
 import zeiss_tiff_meta.zeisstiffmeta as zm
 
 myMap = sys.argv[1]
@@ -15,7 +16,9 @@ resultsDir = sys.argv[3]
 def cleanData(mappedDict):
     # Make endTime var as ISO 8601
     endTime = mappedDict['entry.endTime.Date'] + ' ' + mappedDict['entry.endTime.Time']
-    mappedDict['entry.endTime'] = parser.parse(endTime).isoformat()
+    # mappedDict['entry.endTime'] = dateutil.parser.parse(endTime).isoformat()
+    mappedDict['entry.endTime'] = 'testing'
+
     
     # Remove separate date and time vars
     mappedDict.pop('entry.endTime.Date')
@@ -117,4 +120,4 @@ input_zip_path = inputDir
 # output_zip_path = os.path.join('/Users/elias/Desktop/SEM-Mapping-Tool/main/results/', output_zip_filename)
 output_zip_path = resultsDir
 
-process_zip(input_zip_path, myMap)
+process_zip(input_zip_path, myMap, output_zip_path)
