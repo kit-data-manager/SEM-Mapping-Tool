@@ -18,7 +18,7 @@
         "Gun Vacuum_unit":"entry.instrument.eBeamSource.gunPressure.unit",
         "Beam Current_unit":"entry.instrument.eBeamSource.beamCurrent.unit",
         "Beam Current_value":"entry.instrument.eBeamSource.beamCurrent.value",
-        "High Current_value":"entry.instrument.eBeamSource.highCurrent.value",
+        "High Current_value":"entry.instrument.eBeamSource.highCurrent",
         "Stage Initialised_value":"entry.instrument.stage.stageAlignmentDone",
         "Tilt Angle_value":"entry.instrument.stage.tiltCorrectionAngle.value",
         "Tilt Angle_unit":"entry.instrument.stage.tiltCorrectionAngle.unit",
