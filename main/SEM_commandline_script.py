@@ -85,7 +85,8 @@ def workFlow(sourceImg, mapSEM, resultsPath = 'defResults.json'):
         print('One or more of the required parameters was not found.')
     
     # Clean up the metadata
-    cleanDict = cleanData(workingDict)
+    # cleanDict = cleanData(workingDict)
+    cleanDict = workingDict
         
     # Creating the nested dictionary according to schema
     outputFile = dict()
