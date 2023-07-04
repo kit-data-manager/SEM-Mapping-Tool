@@ -6,6 +6,7 @@ from attributeMapping import AttributeMapping
 import datetime as dt
 from dateutil import parser
 import logging
+import hyperspy.api as hs
 if sys.version_info >= (3, 6):
     import zipfile
 else:
