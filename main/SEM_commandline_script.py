@@ -35,21 +35,14 @@ def cleanData(mappedDict):
         imgSize = [float(s.strip()) for s in mappedDict['entry.instrument.imaging.numberOfPixels.xPixels'].split('*')]
         mappedDict['entry.instrument.imaging.numberOfPixels.xPixels'] = imgSize[0]
         mappedDict['entry.instrument.imaging.numberOfPixels.yPixels'] = imgSize[1]
-        
-        # Format tilt correction
-        
-        tiltCorr = mappedDict['entry.instrument.imaging.tiltCorrection']
-        if tiltCorr: 
-            mappedDict['entry.instrument.imaging.tiltCorrection'] = ''
-        else:
-            mappedDict['entry.instrument.imaging.tiltCorrection'] = 'None'
             
         # Deg symbol to "degree"
         if mappedDict['entry.instrument.FIB.angleToEBeam.unit'] == '\u00b0':
             mappedDict['entry.instrument.FIB.angleToEBeam.unit'] = 'degree'
-        if mappedDict['entry.instrument.stage.tiltAngle.unit'] == '\u00b0':
-            mappedDict['entry.instrument.stage.tiltAngle.unit'] = 'degree'
-        
+        if mappedDict['entry.instrument.stage.stageTiltAngle.unit'] == '\u00b0':
+            mappedDict['entry.instrument.stage.stageTiltAngle.unit'] = 'degree'
+        if mappedDict['entry.instrument.stage.tiltCorrectionAngle.unit'] == '\u00b0':
+            mappedDict['entry.instrument.stage.tiltCorrectionAngle.unit'] = 'degree'
         return {key: value for key, value in sorted(mappedDict.items())}
 
     
